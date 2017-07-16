@@ -40,3 +40,9 @@ XR.loadData(uri, {
         uri: uri
     }
 });
+
+// test for the widget name in the id
+XR.regexTest = function(element) {
+    var regexTest = new RegExp(/\bwidget\-/);
+    return regexTest.test(element.id);
+}
