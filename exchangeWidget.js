@@ -46,3 +46,25 @@ XR.regexTest = function(element) {
     var regexTest = new RegExp(/\bexchangeWidget\-/);
     return regexTest.test(element.id);
 }
+
+// populate the widget with html
+XR.populateWidget = function() {
+    // need to figure out the widget html here
+    var content = "<h1> FILL ME WITH CONTENT </h1>";
+    return content;
+}
+
+// check the dom for elements with the exchangeWidget prefix
+XR.init = function() {
+    var i = 0;
+    while (!!document.getElementById("exchangeWidget-" + i)) {
+        document.getElementById("exchangeWidget-" + i).innerHTML = XR.populateWidget();
+        i++;
+    }
+}
+
+document.onreadystatechange = function() {
+    if (document.readyState === "complete") {
+        XR.init();
+    }
+}
