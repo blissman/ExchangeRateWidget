@@ -52,9 +52,9 @@ XR.populateWidget = function() {
     // need to figure out the widget html here
     var content = "<h1> Currency Converter </h1>";
     content += "<h3> Type in amount and select currency: </h3>";
-    content += "<input type=\"number\" name=\"initialNumber\"><select><option value=\"cad\">CAD</option><option value=\"usd\">USD</option><option value=\"eur\">EUR</option></select>";
+    content += "<input type=\"number\" name=\"inputNumber\"><select><option value=\"cad\">CAD</option><option value=\"usd\">USD</option><option value=\"eur\">EUR</option></select>";
     content += "<h3> Converted amount: </h3>";
-    content += "<input type=\"number\" name=\"initialNumber\" disabled><select><option value=\"cad\">CAD</option><option value=\"usd\">USD</option><option value=\"eur\">EUR</option></select>";
+    content += "<input type=\"number\" name=\"outputNumber\" disabled><select><option value=\"cad\">CAD</option><option value=\"usd\">USD</option><option value=\"eur\">EUR</option></select>";
 
     return content;
 }
