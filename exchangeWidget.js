@@ -29,6 +29,7 @@ XR.loadData(uri, {
         XR.exchangeRates = payload;
     },
     failure: function(params) {
+        XR.exchangeRates = "unreachable";
         console("ERROR: Unable to talk to config URL: " + params.uri);
     }
 }, {
