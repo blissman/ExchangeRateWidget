@@ -21,7 +21,7 @@ XR.loadData = function(uri, callbacks, params) {
     xhr.send();
 }
 
-// load exchange rates
+// load exchange rates to XR.exchangeRates object
 var uri = "http://api.fixer.io/latest";
 XR.loadData(uri, {
     success: function(xhr, params) {
@@ -41,8 +41,8 @@ XR.loadData(uri, {
     }
 });
 
-// test for the widget name in the id
+// test for the exchangeWidget name in the id
 XR.regexTest = function(element) {
-    var regexTest = new RegExp(/\bwidget\-/);
+    var regexTest = new RegExp(/\bexchangeWidget\-/);
     return regexTest.test(element.id);
 }
