@@ -50,7 +50,12 @@ XR.regexTest = function(element) {
 // populate the widget with html
 XR.populateWidget = function() {
     // need to figure out the widget html here
-    var content = "<h1> FILL ME WITH CONTENT </h1>";
+    var content = "<h1> Currency Converter </h1>";
+    content += "<h3> Type in amount and select currency: </h3>";
+    content += "<input type=\"number\" name=\"initialNumber\"><select><option value=\"cad\">CAD</option><option value=\"usd\">USD</option><option value=\"eur\">EUR</option></select>";
+    content += "<h3> Converted amount: </h3>";
+    content += "<input type=\"number\" name=\"initialNumber\" disabled><select><option value=\"cad\">CAD</option><option value=\"usd\">USD</option><option value=\"eur\">EUR</option></select>";
+
     return content;
 }
 
@@ -63,7 +68,7 @@ XR.init = function() {
     }
 }
 
-// wait for the page to be ready and then fill the divs
+// wait for the page to be ready (to prevent timing issues) and then fill the divs
 document.onreadystatechange = function() {
     if (document.readyState === "complete") {
         XR.init();
