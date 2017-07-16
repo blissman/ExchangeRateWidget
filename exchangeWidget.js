@@ -63,7 +63,7 @@ XR.updateConverted = function(element) {
     var inputValue = parseFloat(document.getElementById(element + "-inputNumber").value);
     var inputRate = XR.getRate(element + "-inputCurrency");
     var outputRate = XR.getRate(element + "-outputCurrency");
-    var outputValue = inputValue / inputRate * outputRate;
+    var outputValue = Math.round((inputValue / inputRate * outputRate)*100)/100;
     document.getElementById(element + "-outputNumber").value = outputValue;
 }
 
