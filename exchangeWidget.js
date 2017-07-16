@@ -63,6 +63,7 @@ XR.init = function() {
     }
 }
 
+// wait for the page to be ready and then fill the divs
 document.onreadystatechange = function() {
     if (document.readyState === "complete") {
         XR.init();
