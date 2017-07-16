@@ -3,7 +3,7 @@ if (!window.XR) {
     window.XR = {};
 }
 
-// define a function for making an http request
+// define a method for making an http request
 XR.loadData = function(uri, callbacks, params) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", encodeURI(uri));
@@ -20,3 +20,22 @@ XR.loadData = function(uri, callbacks, params) {
     };
     xhr.send();
 }
+
+// load exchange rates
+var uri = "http://api.fixer.io/latest";
+XR.loadData(uri, {
+    success: function(xhr, params) {
+        var payload = JSON.parse(xhr.responseText);
+        XR.exchangeRates = payload;
+    },
+    failure: function(params) {
+        console("ERROR: Unable to talk to config URL: " + params.uri);
+    }
+}, {
+    success: {
+        uri: uri
+    },
+    failure: {
+        uri: uri
+    }
+});
