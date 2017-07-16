@@ -47,14 +47,34 @@ XR.regexTest = function(element) {
     return regexTest.test(element.id);
 }
 
+XR.getRate = function(element) {
+    var currency = document.getElementById(element).value;
+    var rate;
+    if(currency === XR.exchangeRates.base) {
+        rate = 1;
+    } else {
+        rate = XR.exchangeRates.rates[currency];
+    }
+    return rate;
+}
+
+// update the converted value when fields change
+XR.updateConverted = function(element) {
+    var inputValue = parseFloat(document.getElementById(element + "-inputNumber").value);
+    var inputRate = XR.getRate(element + "-inputCurrency");
+    var outputRate = XR.getRate(element + "-outputCurrency");
+    var outputValue = inputValue / inputRate * outputRate;
+    document.getElementById(element + "-outputNumber").value = outputValue;
+}
+
 // populate the widget with html
 XR.populateWidget = function(element) {
     // need to figure out the widget html here
     var content = "<h1> Currency Converter </h1>";
     content += "<h3> Type in amount and select currency: </h3>";
-    content += "<input type=\"number\" id=\"" + element + "-inputNumber\" name=\"inputNumber\"><select id=\"" + element + "-inputCurrency\"><option value=\"cad\">CAD</option><option value=\"usd\">USD</option><option value=\"eur\">EUR</option></select>";
+    content += "<input type=\"number\" id=\"" + element + "-inputNumber\" name=\"inputNumber\" oninput=\"XR.updateConverted(\'" + element + "\')\"><select id=\"" + element + "-inputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
     content += "<h3> Converted amount: </h3>";
-    content += "<input type=\"number\" id=\"" + element + "-outputNumber\" name=\"outputNumber\" disabled><select id=\"" + element + "-outputCurrency\"><option value=\"cad\">CAD</option><option value=\"usd\">USD</option><option value=\"eur\">EUR</option></select>";
+    content += "<input type=\"number\" id=\"" + element + "-outputNumber\" name=\"outputNumber\" disabled><select id=\"" + element + "-outputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
 
     return content;
 }
