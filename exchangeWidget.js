@@ -22,24 +22,25 @@ XR.loadData = function(uri, callbacks, params) {
 }
 
 // load exchange rates to XR.exchangeRates object
-var uri = "http://api.fixer.io/latest";
-XR.loadData(uri, {
-    success: function(xhr, params) {
-        var payload = JSON.parse(xhr.responseText);
-        XR.exchangeRates = payload;
-    },
-    failure: function(params) {
-        XR.exchangeRates = "unreachable";
-        console("ERROR: Unable to talk to config URL: " + params.uri);
-    }
-}, {
-    success: {
-        uri: uri
-    },
-    failure: {
-        uri: uri
-    }
-});
+XR.populateDataLayer = function(uri) {
+    XR.loadData(uri, {
+        success: function(xhr, params) {
+            var payload = JSON.parse(xhr.responseText);
+            XR.exchangeRates = payload;
+        },
+        failure: function(params) {
+            XR.exchangeRates = "unreachable";
+            console("ERROR: Unable to talk to config URL: " + params.uri);
+        }
+    }, {
+        success: {
+            uri: uri
+        },
+        failure: {
+            uri: uri
+        }
+    });
+}
 
 // test for the exchangeWidget name in the id
 XR.regexTest = function(element) {
@@ -155,6 +156,7 @@ XR.appendStyles = function() {
 
 // check the dom for elements with the exchangeWidget prefix
 XR.init = function() {
+    XR.populateDataLayer("http://api.fixer.io/latest");
     var i = 0;
     while (!!document.getElementById("exchangeWidget-" + i)) {
         document.getElementById("exchangeWidget-" + i).innerHTML = XR.populateWidget("exchangeWidget-" + i);
