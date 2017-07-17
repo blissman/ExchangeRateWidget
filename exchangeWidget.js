@@ -44,6 +44,7 @@ XR.loadData(uri, {
 // test for the exchangeWidget name in the id
 XR.regexTest = function(element) {
     var regexTest = new RegExp(/\bexchangeWidget\-/);
+
     return regexTest.test(element.id);
 }
 
@@ -55,6 +56,7 @@ XR.getRate = function(element) {
     } else {
         rate = XR.exchangeRates.rates[currency];
     }
+
     return rate;
 }
 
