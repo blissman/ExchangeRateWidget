@@ -85,7 +85,7 @@ XR.populateWidget = function(element) {
     content += "<input type=\"text\" id=\"" + element + "-outputNumber\" name=\"outputNumber\" class=\"field\" disabled><select id=\"" + element + "-outputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\" class=\"selector\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
     content += "<br>";
     content += "<div class=\"disclaimer\">";
-    content += "<a href=\"#\">Disclaimer</a>";
+    content += "<a href=\"#\" onclick=\"alert(\'Exchange rate provided by fixer.io. For educational purposes only.\');\">Disclaimer</a>";
     content += "</div>";
 
     return content;
