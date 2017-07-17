@@ -78,12 +78,12 @@ XR.updateConverted = function(element) {
 // populate the widget with html
 XR.populateWidget = function(element) {
     // need to figure out the widget html here
-    var content = "<h1> Currency Converter </h1>";
-    content += "<h3> Type in amount and select currency: </h3>";
-    content += "<input type=\"number\" id=\"" + element + "-inputNumber\" name=\"inputNumber\" oninput=\"XR.updateConverted(\'" + element + "\')\"><select id=\"" + element + "-inputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
-    content += "<h3> Converted amount: </h3>";
-    content += "<input type=\"text\" id=\"" + element + "-outputNumber\" name=\"outputNumber\" disabled><select id=\"" + element + "-outputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
-    content += "<br><a href=\"#\">Disclaimer</a>"
+    var content = "<h1 class=\"title\"> Currency Converter </h1>";
+    content += "<p class=\"subtitle\"> Type in amount and select currency: </p>";
+    content += "<input type=\"number\" id=\"" + element + "-inputNumber\" name=\"inputNumber\" oninput=\"XR.updateConverted(\'" + element + "\')\" class=\"field\"><select id=\"" + element + "-inputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\" class=\"selector\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
+    content += "<p class=\"subtitle\"> Converted amount: </p>";
+    content += "<input type=\"text\" id=\"" + element + "-outputNumber\" name=\"outputNumber\" class=\"field\" disabled><select id=\"" + element + "-outputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\" class=\"selector\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
+    content += "<br><div class=\"disclaimer\"><a href=\"#\">Disclaimer</a></div>"
 
     return content;
 }
@@ -92,13 +92,55 @@ XR.populateWidget = function(element) {
 XR.appendStyles = function() {
     var styleNode = document.createElement("style");
     // define the style
+    // widget div
     var style = ".exchangeWidget{";
     style += "padding: 1rem;";
+    style += "min-width: 190px;";
+    style += "max-width: 330px;";
     style += "border-style: solid;";
     style += "border-color: #000;";
     style += "border-width: 1px;";
     style += "overflow: hidden;";
     style += "}";
+    // fields
+    style += ".field{";
+    style += "width: 50%;";
+    style += "margin-right: 1rem;";
+    style += "padding: 0.25rem;";
+    style += "border-style: solid;";
+    style += "border-color: #000;";
+    style += "border-width: 1px;";
+    style += "overflow: hidden;";
+    style += "}";
+    // selectors
+    style += ".selector{";
+    style += "padding: 0.25rem;";
+    style += "border-style: solid;";
+    style += "border-color: #000;";
+    style += "border-width: 1px;";
+    style += "overflow: hidden;";
+    style += "}";
+    // title
+    style += ".title{";
+    style += "font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;";
+    style += "overflow: hidden;";
+    style += "}";
+    // subtitle
+    style += ".subtitle{";
+    style += "font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;";
+    style += "padding: 0.25rem;";
+    style += "overflow: hidden;";
+    style += "}";
+    // disclaimer
+    style += ".disclaimer{";
+    style += "font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;";
+    style += "width: 100%;";
+    style += "text-align: right;";
+    style += "padding: 0.25rem;";
+    style += "overflow: hidden;";
+    style += "}";
+
+
     // create a style text node with the style defined above
     var styleText = document.createTextNode(style);
     styleNode.appendChild(styleText);
