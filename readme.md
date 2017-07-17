@@ -6,7 +6,7 @@ ExchangeRateWidget is a response JavaScript widget designed to read exchange rat
 
 ## Installation
 
-ExchangeRateWidget is simple to install by design. Start by including the exchangeWidget.js script into your html.
+ExchangeRateWidget is simple to install by design. Start by including the exchangeWidget.js script into your html at the bottom of the body.
 ```html
 <script src="path/to/exchangeWidget.js" async></script>
 ```
@@ -17,3 +17,10 @@ Next, to create instances of the exchange widget, add in divs with id's of "exch
 ```
 
 And that's it! ExchangeRateWidget should do the rest.
+
+## Customization
+
+ExchangeRateWidget's css styles can be customized! ExchangeRateWidget appends styles to the bottom of the head using the XR.appendStyles method. If you want to customize your styles, it's a simple as modifying the css therein.
+
+## Future considerations
+ExchangeRateWidget may include more features and capability in the future. This may include refactoring the code to handle more currencies, displaying the date of the current exchange rate information, and even supporting past exchange rate data.

@@ -144,8 +144,6 @@ XR.appendStyles = function() {
     style += "padding: 0.25rem;";
     style += "overflow: hidden;";
     style += "}";
-
-
     // create a style text node with the style defined above
     var styleText = document.createTextNode(style);
     styleNode.appendChild(styleText);
