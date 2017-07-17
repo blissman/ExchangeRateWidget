@@ -73,7 +73,7 @@ XR.updateConverted = function(element) {
             document.getElementById(element + "-outputNumber").value = outputValue;
         }
     } else {
-        document.getElementById(element + "-outputNumber").value = "Server Error";
+        document.getElementById(element + "-outputNumber").value = "Server Unavailable";
     }
 }
 
