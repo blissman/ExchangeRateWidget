@@ -48,6 +48,7 @@ XR.regexTest = function(element) {
     return regexTest.test(element.id);
 }
 
+// gets the exchange rate from the XR.exchangeRates data layer
 XR.getRate = function(element) {
     var currency = document.getElementById(element).value;
     var rate;
@@ -93,7 +94,7 @@ XR.populateWidget = function(element) {
     return content;
 }
 
-// this method appends style to the html
+// appends style to the html
 XR.appendStyles = function() {
     var styleNode = document.createElement("style");
     // define the style
