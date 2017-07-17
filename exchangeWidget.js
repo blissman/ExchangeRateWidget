@@ -160,12 +160,12 @@ XR.init = function() {
         document.getElementById("exchangeWidget-" + i).innerHTML = XR.populateWidget("exchangeWidget-" + i);
         i++;
     }
+    XR.appendStyles();
 }
 
 // wait for the page to be ready (to prevent timing issues) and then fill the divs
 document.onreadystatechange = function() {
     if (document.readyState === "complete") {
         XR.init();
-        XR.appendStyles();
     }
 }
