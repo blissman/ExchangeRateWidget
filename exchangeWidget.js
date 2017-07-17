@@ -62,7 +62,7 @@ XR.getRate = function(element) {
 
 // update the converted value when fields change
 XR.updateConverted = function(element) {
-    if (!!XR.exchangeRates) {
+    if (XR.exchangeRates !== "unreachable") {
         if (document.getElementById(element + "-inputNumber").value === "") {
             document.getElementById(element + "-outputNumber").value = null;
         } else {
