@@ -13,9 +13,7 @@ XR.loadData = function(uri, callbacks, params) {
             callbacks.success(xhr, params);
         } else {
             callbacks.failure(params);
-            if (!!console) {
-                console.log("Request failed. Returned status of " + xhr.status);
-            }
+            console.log("Request failed. Returned status of " + xhr.status);
         }
     };
     xhr.send();
@@ -30,7 +28,7 @@ XR.populateDataLayer = function(uri) {
         },
         failure: function(params) {
             XR.exchangeRates = "unreachable";
-            console("ERROR: Unable to talk to config URL: " + params.uri);
+            console.log("ERROR: Unable to talk to config URL: " + params.uri);
         }
     }, {
         success: {
@@ -156,7 +154,7 @@ XR.appendStyles = function() {
 
 // check the dom for elements with the exchangeWidget prefix
 XR.init = function() {
-    XR.populateDataLayer("http://api.fixer.io/latest");
+    XR.populateDataLayer("http://api.fixer.io/latestt");
     var i = 0;
     while (!!document.getElementById("exchangeWidget-" + i)) {
         document.getElementById("exchangeWidget-" + i).innerHTML = XR.populateWidget("exchangeWidget-" + i);
