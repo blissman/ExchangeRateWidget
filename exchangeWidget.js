@@ -63,7 +63,7 @@ XR.getRate = function(element) {
 // update the converted value when fields change
 XR.updateConverted = function(element) {
     if (!!XR.exchangeRates) {
-        if(document.getElementById(element + "-inputNumber").value === "") {
+        if (document.getElementById(element + "-inputNumber").value === "") {
             document.getElementById(element + "-outputNumber").value = null;
         } else {
             var inputValue = parseFloat(document.getElementById(element + "-inputNumber").value);
