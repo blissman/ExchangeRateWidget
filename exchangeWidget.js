@@ -80,7 +80,6 @@ XR.updateConverted = function(element) {
 
 // populate the widget with html
 XR.populateWidget = function(element) {
-    // need to figure out the widget html here
     var content = "<h1 class=\"title\"> Currency Converter </h1>";
     content += "<p class=\"subtitle\"> Type in amount and select currency: </p>";
     content += "<input type=\"number\" id=\"" + element + "-inputNumber\" name=\"inputNumber\" oninput=\"XR.updateConverted(\'" + element + "\')\" class=\"field\"><select id=\"" + element + "-inputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\" class=\"selector\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
