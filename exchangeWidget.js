@@ -83,7 +83,10 @@ XR.populateWidget = function(element) {
     content += "<input type=\"number\" id=\"" + element + "-inputNumber\" name=\"inputNumber\" oninput=\"XR.updateConverted(\'" + element + "\')\" class=\"field\"><select id=\"" + element + "-inputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\" class=\"selector\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
     content += "<p class=\"subtitle\"> Converted amount: </p>";
     content += "<input type=\"text\" id=\"" + element + "-outputNumber\" name=\"outputNumber\" class=\"field\" disabled><select id=\"" + element + "-outputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\" class=\"selector\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
-    content += "<br><div class=\"disclaimer\"><a href=\"#\">Disclaimer</a></div>"
+    content += "<br>";
+    content += "<div class=\"disclaimer\">";
+    content += "<a href=\"#\">Disclaimer</a>";
+    content += "</div>";
 
     return content;
 }
