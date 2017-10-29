@@ -154,7 +154,7 @@ XR.appendStyles = function() {
 
 // check the dom for elements with the exchangeWidget prefix
 XR.init = function() {
-    XR.populateDataLayer("http://api.fixer.io/latest");
+    XR.populateDataLayer("//api.fixer.io/latest");
     var i = 0;
     while (!!document.getElementById("exchangeWidget-" + i)) {
         document.getElementById("exchangeWidget-" + i).innerHTML = XR.populateWidget("exchangeWidget-" + i);
