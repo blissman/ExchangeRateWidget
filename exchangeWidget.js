@@ -86,7 +86,7 @@ XR.populateWidget = function(element) {
     content += "<input type=\"text\" id=\"" + element + "-outputNumber\" name=\"outputNumber\" class=\"field\" disabled><select id=\"" + element + "-outputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\" class=\"selector\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
     content += "<br>";
     content += "<div class=\"disclaimer\">";
-    content += "<a href=\"#\" onclick=\"alert(\'Exchange rate provided by fixer.io. For educational purposes only.\');\">Disclaimer</a>";
+    content += "<a href=\"#\" onclick=\"alert(\'Exchange rate provided by exchangeratesapi.io. For educational purposes only.\');\">Disclaimer</a>";
     content += "</div>";
 
     return content;
@@ -154,7 +154,7 @@ XR.appendStyles = function() {
 
 // check the dom for elements with the exchangeWidget prefix
 XR.init = function() {
-    XR.populateDataLayer("//api.fixer.io/latest");
+    XR.populateDataLayer("//api.exchangeratesapi.io/latest");
     var i = 0;
     while (!!document.getElementById("exchangeWidget-" + i)) {
         document.getElementById("exchangeWidget-" + i).innerHTML = XR.populateWidget("exchangeWidget-" + i);
