@@ -2,7 +2,7 @@
 
 ## Introduction
 
-ExchangeRateWidget is a response JavaScript widget designed to read exchange rates from the api of [fixer.io](http://fixer.io/) and allow the user to calculate currency values between EUR, CAD, and USD.
+ExchangeRateWidget is a response JavaScript widget designed to read exchange rates from the api of [exchangeratesapi.io](http://exchangeratesapi.io/) and allow the user to calculate currency values between EUR, CAD, and USD.
 
 ## Installation
 
