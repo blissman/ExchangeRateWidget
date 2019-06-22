@@ -83,7 +83,7 @@ XR.populateWidget = function(element) {
     content += "<p class=\"subtitle\"> Type in amount and select currency: </p>";
     content += "<input type=\"number\" id=\"" + element + "-inputNumber\" name=\"inputNumber\" oninput=\"XR.updateConverted(\'" + element + "\')\" class=\"field\"><select id=\"" + element + "-inputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\" class=\"selector\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
     content += "<p class=\"subtitle\"> Converted amount: </p>";
-    content += "<input type=\"text\" id=\"" + element + "-outputNumber\" name=\"outputNumber\" class=\"field\" disabled><select id=\"" + element + "-outputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\" class=\"selector\"><option value=\"CAD\">CAD</option><option value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
+    content += "<input type=\"text\" id=\"" + element + "-outputNumber\" name=\"outputNumber\" class=\"field\" disabled><select id=\"" + element + "-outputCurrency\" onchange=\"XR.updateConverted(\'" + element + "\')\" class=\"selector\"><option value=\"CAD\">CAD</option><option selected=\"selected\" value=\"USD\">USD</option><option value=\"EUR\">EUR</option></select>";
     content += "<br>";
     content += "<div class=\"disclaimer\">";
     content += "<a href=\"#\" onclick=\"alert(\'Exchange rate provided by exchangeratesapi.io. For educational purposes only.\');\">Disclaimer</a>";
